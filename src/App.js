@@ -39,7 +39,7 @@ class App extends Component {
           onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
           onCameraError = { (error) => { this.onCameraError(error); } }
           idealFacingMode = {FACING_MODES.ENVIRONMENT}
-          idealResolution = {{width: 640, height: 480}}
+          idealResolution = {{width: 480, height: 480}}
           imageType = {IMAGE_TYPES.JPG}
           imageCompression = {0.97}
           isMaxResolution = {false}
