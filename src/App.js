@@ -4,7 +4,13 @@ import 'react-html5-camera-photo/build/css/index.css';
 import axios from 'axios';
 
 class App extends Component {
+  /**
+   * Event response triggered when camera takes a photo, posts image string to backend service
+   * 
+   * @param {string} dataUri base64 String of the image in data uri schema standard 
+   */
   onTakePhoto (dataUri) {
+    
     let formData = new FormData();
     formData.append('image', dataUri);
 
@@ -18,19 +24,18 @@ class App extends Component {
       });
     
     }
-
+  /**
+   * Event response triggered when camera photo shoot encounters an error, logs error message
+   * 
+   * @param {string} error String describing error state that will be made available on client console as error
+   */
   onCameraError (error) {
     console.error('onCameraError', error);
   }
 
-  onCameraStart (stream) {
-    console.log('onCameraStart');
-  }
-
-  onCameraStop () {
-    console.log('onCameraStop');
-  }
-
+  /**
+   * Render method as part of Component, responsible for utilizing HTML5 plugin via HTML tag
+   */
   render () {
     return (
       <div className="App">
@@ -46,8 +51,6 @@ class App extends Component {
           isImageMirror = {false}
           isDisplayStartCameraError = {true}
           sizeFactor = {1}
-          onCameraStart = { (stream) => { this.onCameraStart(stream); } }
-          onCameraStop = { () => { this.onCameraStop(); } }
         />
         </div>
       </div>
